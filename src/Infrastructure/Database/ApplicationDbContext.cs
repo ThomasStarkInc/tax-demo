@@ -1,7 +1,7 @@
 ﻿using Application.Abstractions.Data;
 
 using Domain.Municipalities;
-using Domain.Schedules;
+using Domain.TaxSchedules;
 using MediatR;
 
 using Microsoft.EntityFrameworkCore;
@@ -23,8 +23,6 @@ public sealed class ApplicationDbContext(DbContextOptions<ApplicationDbContext> 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
-
-        modelBuilder.HasDefaultSchema(Schemas.Default);
     }
 
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)

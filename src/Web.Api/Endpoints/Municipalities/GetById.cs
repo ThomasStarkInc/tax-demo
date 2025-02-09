@@ -1,0 +1,26 @@
+﻿using Application.Municipalities.GetById;
+
+using MediatR;
+
+using SharedKernel;
+
+using Web.Api.Extensions;
+using Web.Api.Infrastructure;
+
+namespace Web.Api.Endpoints.Users;
+
+internal sealed class GetById : IEndpoint
+{
+    public void MapEndpoint(IEndpointRouteBuilder app)
+    {
+        app.MapGet("/api/municipalities/{municipalityId}", async (Guid municipalityId, ISender sender, CancellationToken cancellationToken) =>
+        {
+            var query = new GetMunicipalityByIdQuery(municipalityId);
+
+            Result<MunicipalityResponse> result = await sender.Send(query, cancellationToken);
+
+            return result.Match(Results.Ok, CustomResults.Problem);
+        })
+        .WithTags(Tags.Municipalities);
+    }
+}

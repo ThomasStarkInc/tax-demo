@@ -1,5 +1,5 @@
 ﻿using Domain.Municipalities;
-using Domain.Schedules;
+using Domain.TaxSchedules;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

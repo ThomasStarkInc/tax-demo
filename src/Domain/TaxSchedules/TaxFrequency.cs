@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Schedules;
+namespace Domain.TaxSchedules;
+
 public enum TaxFrequency
 {
     Yearly,

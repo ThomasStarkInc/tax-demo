@@ -1,13 +1,16 @@
-﻿using Domain.Municipalities;
+﻿using System.Text.Json.Serialization;
+
+using Domain.Municipalities;
 
 using SharedKernel;
 
-namespace Domain.Schedules;
+namespace Domain.TaxSchedules;
 
 public sealed class TaxSchedule : Entity
 {
     public Guid Id { get; private set; }
     public Guid MunicipalityId { get; private set; }
+    [JsonIgnore]
     public Municipality Municipality { get; private set; }
     public decimal TaxRate { get; private set; }
     public DateTime StartDateUtc { get; private set; }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Domain.Schedules;
+using Domain.TaxSchedules;
 
 using SharedKernel;
 
@@ -12,9 +12,9 @@ namespace Domain.Municipalities;
 
 public class Municipality : Entity
 {
-    public Guid Id { get; protected set; }
-    public string Name { get; protected set; }
-    public List<TaxSchedule> TaxSchedules { get; protected set; } = new();
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public List<TaxSchedule> TaxSchedules { get; set; } = new();
 
     private Municipality() { } // For EF Core
 
