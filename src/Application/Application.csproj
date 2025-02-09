@@ -12,6 +12,10 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\SharedKernel\SharedKernel.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <InternalsVisibleTo Include="TaxTests" />
+  </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Municipalities\GetByNameAndDate\" />
