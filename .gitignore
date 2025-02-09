@@ -31,6 +31,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+[Dd]ata/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -398,3 +399,6 @@ FodyWeavers.xsd
 *.sln.iml
 
 .containers/
+/src/Web.Api/Data/SQlLiteDatabase.db
+/src/Web.Api/Data/SQlLiteDatabase.db-shm
+/src/Web.Api/Data/SQlLiteDatabase.db-wal
