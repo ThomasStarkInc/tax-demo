@@ -7,7 +7,7 @@ using SharedKernel;
 using Web.Api.Extensions;
 using Web.Api.Infrastructure;
 
-namespace Web.Api.Endpoints.Users;
+namespace Web.Api.Endpoints.Municipalities;
 
 internal sealed class GetById : IEndpoint
 {

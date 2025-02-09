@@ -32,12 +32,5 @@ internal sealed class TaxScheduleConfiguration : IEntityTypeConfiguration<TaxSch
         builder.Property(t => t.Frequency)
             .IsRequired()
             .HasConversion<int>();
-
-        //builder.HasData(
-        //    new TaxSchedule(Guid.NewGuid(), 0.2m, new DateTime(2016, 01, 01), new DateTime(2016, 12, 31), TaxFrequency.Yearly),
-        //    new TaxSchedule(Guid.NewGuid(), 0.4m, new DateTime(2016, 05, 01), new DateTime(2016, 05, 31), TaxFrequency.Monthly),
-        //    new TaxSchedule(Guid.NewGuid(), 0.1m, new DateTime(2016, 01, 01), new DateTime(2016, 01, 01), TaxFrequency.Daily),
-        //    new TaxSchedule(Guid.NewGuid(), 0.1m, new DateTime(2016, 12, 25), new DateTime(2016, 12, 25), TaxFrequency.Daily)
-        //);
     }
 }

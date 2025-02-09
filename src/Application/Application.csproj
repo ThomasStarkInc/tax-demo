@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	<InternalsVisibleTo Include="Application.UnitTests" />
+    <Folder Include="Municipalities\GetByNameAndDate\" />
   </ItemGroup>
 
 </Project>

@@ -18,7 +18,7 @@ public static class SeedData
     {
         if (await dbContext.Municipalities.AnyAsync())
         {
-            return; // DB has been seeded
+            return;
         }
 
         await PopulateTestDataAsync(dbContext);
@@ -48,6 +48,7 @@ public static class SeedData
                 Id = municipalityIds[0],
                 TaxSchedules = new List<TaxSchedule>
                 {
+                    // TODO: These dates ought to be in UTC
                     new TaxSchedule(
                         municipalityId: municipalityIds[0],
                         taxRate: 0.2m,

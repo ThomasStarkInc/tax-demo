@@ -20,7 +20,5 @@ internal sealed class MunicipalityConfiguration : IEntityTypeConfiguration<Munic
             .WithOne(t => t.Municipality)
             .HasForeignKey(t => t.MunicipalityId)
             .OnDelete(DeleteBehavior.Cascade);
-
-        //builder.HasData(new Municipality("Copenhagen"));
     }
 }
