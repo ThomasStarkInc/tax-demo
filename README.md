@@ -1,3 +1,14 @@
+# Clean architecture implementation demoing simple api calls using CQRS
+This is the first time using the Clean Architecture template by Milan Jovanovic.  I chose to use this template to gain some experience with this flavor of clean architecture and the use of MediatR and CQRS.
+The task was to create a small app that can return municipality and scheduled taxes for given dates.  Solving the task is fairly straight forward, but it has given me the opportunity to try this temlate, which I have been meaning to do for a while.
+CQRS requires some setup, but it is very explicit.  It takes getting used to I suppose.
+
+Mssing in this repo:
+- [ ] Needs more logging
+- [ ] Needs more exception handling
+- [ ] Needs more validation and sanitization
+- [ ] Need to add abstraction for EF.  Perhaps with a Repository.
+
 # Clean Architecture Template
 
 What's included in the template?

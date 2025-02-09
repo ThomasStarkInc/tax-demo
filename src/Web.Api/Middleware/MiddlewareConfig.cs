@@ -27,9 +27,8 @@ internal static class MiddlewareConfig
         try
         {
             var context = services.GetRequiredService<ApplicationDbContext>();
-            var passwordHasher = services.GetRequiredService<IPasswordHasher>();
             await context.Database.EnsureCreatedAsync();
-            await SeedData.InitializeAsync(context, passwordHasher).ConfigureAwait(true);
+            await SeedData.InitializeAsync(context).ConfigureAwait(true);
         }
         catch (Exception ex)
         {

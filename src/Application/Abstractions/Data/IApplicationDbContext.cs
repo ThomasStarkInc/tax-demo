@@ -1,5 +1,5 @@
-﻿using Domain.Todos;
-using Domain.Users;
+﻿using Domain.Municipalities;
+using Domain.TaxSchedules;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -7,8 +7,8 @@ namespace Application.Abstractions.Data;
 
 public interface IApplicationDbContext
 {
-    DbSet<User> Users { get; }
-    DbSet<TodoItem> TodoItems { get; }
+    DbSet<Municipality> Municipalities { get; }
+    DbSet<TaxSchedule> TaxSchedules { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

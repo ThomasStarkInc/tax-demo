@@ -3,6 +3,7 @@ using System;
 using Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,12 +11,16 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Database.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250209095323_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
+            modelBuilder
+                .HasDefaultSchema("public")
+                .HasAnnotation("ProductVersion", "9.0.1");
 
             modelBuilder.Entity("Domain.Municipalities.Municipality", b =>
                 {
@@ -30,10 +35,10 @@ namespace Infrastructure.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Municipalities");
+                    b.ToTable("Municipalities", "public");
                 });
 
-            modelBuilder.Entity("Domain.TaxSchedules.TaxSchedule", b =>
+            modelBuilder.Entity("Domain.Schedules.TaxSchedule", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,10 +63,10 @@ namespace Infrastructure.Database.Migrations
 
                     b.HasIndex("MunicipalityId");
 
-                    b.ToTable("TaxSchedules");
+                    b.ToTable("TaxSchedules", "public");
                 });
 
-            modelBuilder.Entity("Domain.TaxSchedules.TaxSchedule", b =>
+            modelBuilder.Entity("Domain.Schedules.TaxSchedule", b =>
                 {
                     b.HasOne("Domain.Municipalities.Municipality", "Municipality")
                         .WithMany("TaxSchedules")

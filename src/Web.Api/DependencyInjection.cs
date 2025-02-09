@@ -1,4 +1,6 @@
-﻿using Web.Api.Infrastructure;
+﻿using System.Text.Json.Serialization;
+
+using Web.Api.Infrastructure;
 
 namespace Web.Api;
 
@@ -8,6 +10,8 @@ public static class DependencyInjection
     {
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+
+        services.ConfigureHttpJsonOptions(o => o.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
         // REMARK: If you want to use Controllers, you'll need this.
         services.AddControllers();
