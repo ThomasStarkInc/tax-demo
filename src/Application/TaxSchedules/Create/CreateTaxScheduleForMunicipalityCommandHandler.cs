@@ -17,7 +17,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Application.Municipalities.GetByName;
 
-internal sealed class CreateTaxScheduleForMunicipalityQueryHandler(IApplicationDbContext context, ILogger<CreateTaxScheduleForMunicipalityQueryHandler> logger) : ICommandHandler<CreateTaxScheduleForMunicipalityCommand, Guid>
+internal sealed class CreateTaxScheduleForMunicipalityCommandHandler(IApplicationDbContext context, ILogger<CreateTaxScheduleForMunicipalityCommandHandler> logger) : ICommandHandler<CreateTaxScheduleForMunicipalityCommand, Guid>
 {
     public async Task<Result<Guid>> Handle(CreateTaxScheduleForMunicipalityCommand command, CancellationToken cancellationToken)
     {
@@ -47,10 +47,15 @@ internal sealed class CreateTaxScheduleForMunicipalityQueryHandler(IApplicationD
 
             return taxSchedule.Id;
         }
+        catch (DbUpdateException dbEx)
+        {
+            logger.LogError(dbEx, "Database update error saving TaxSchedules for Municipality Id: {MunicipalityId}", command.MunicipalityId);
+            return Result.Failure<Guid>(Error.Failure("TaxScheduleErrors.DatabaseUpdateFailure", "Database update error"));
+        }
         catch (Exception ex)
         {
             logger.LogError(ex, "Error getting municipality by id: {MunicipalityId}", command.MunicipalityId);
-            return Result.Failure<Guid>(Error.Failure("Municipalities.Failue", "Error creating Tax Schedule"));
+            return Result.Failure<Guid>(Error.Failure("TaxScheduleErrors.Failue", "Error creating Tax Schedule"));
         }
     }
 }

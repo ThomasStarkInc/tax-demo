@@ -19,7 +19,7 @@ internal sealed class GetMunicipalityByNameQueryHandler(IApplicationDbContext co
         MunicipalityResponse? municipality = null;
         try
         {
-            municipality = await context.Municipalities
+            municipality = await context.Municipalities.AsNoTracking()
                 .Where(u => u.Name == query.MunicipalityName)
                 .Select(u => new MunicipalityResponse
                 {
