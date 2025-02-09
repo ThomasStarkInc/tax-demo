@@ -1,6 +1,9 @@
 ﻿using Application.Users.Register;
+
 using MediatR;
+
 using SharedKernel;
+
 using Web.Api.Extensions;
 using Web.Api.Infrastructure;
 

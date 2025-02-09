@@ -1,6 +1,9 @@
 ﻿using Application.Todos.Get;
+
 using MediatR;
+
 using SharedKernel;
+
 using Web.Api.Extensions;
 using Web.Api.Infrastructure;
 

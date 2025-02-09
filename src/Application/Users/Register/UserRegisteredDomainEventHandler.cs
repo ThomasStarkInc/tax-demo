@@ -1,4 +1,5 @@
 ﻿using Domain.Users;
+
 using MediatR;
 
 namespace Application.Users.Register;

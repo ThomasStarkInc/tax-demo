@@ -1,7 +1,11 @@
 ﻿using Application.Todos.Create;
+
 using Domain.Todos;
+
 using MediatR;
+
 using SharedKernel;
+
 using Web.Api.Extensions;
 using Web.Api.Infrastructure;
 

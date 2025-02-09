@@ -1,5 +1,7 @@
 ﻿using System.Reflection;
+
 using Microsoft.Extensions.DependencyInjection.Extensions;
+
 using Web.Api.Endpoints;
 
 namespace Web.Api.Extensions;

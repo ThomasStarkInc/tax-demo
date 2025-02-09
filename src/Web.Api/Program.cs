@@ -1,9 +1,15 @@
 using System.Reflection;
+
 using Application;
+
 using HealthChecks.UI.Client;
+
 using Infrastructure;
+
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+
 using Serilog;
+
 using Web.Api;
 using Web.Api.Extensions;
 
