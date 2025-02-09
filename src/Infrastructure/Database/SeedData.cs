@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 using Application.Abstractions.Authentication;
 
-using Domain.Users;
+using Domain.Municipalities;
+using Domain.Schedules;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -10,44 +12,31 @@ namespace Infrastructure.Database;
 
 public static class SeedData
 {
-    public static readonly User[] Users = new User[]
+    public static readonly Municipality[] Municipalities = new Municipality[]
     {
-        new User()
-        {
-            Id = Guid.NewGuid(),
-            Email = "john@doe.com",
-            FirstName = "John",
-            LastName = "Doe",
-            PasswordHash = "hellohello"
-        },
-        new User()
-        {
-            Id = Guid.NewGuid(),
-            Email = "snow@frog.com",
-            FirstName = "Snow",
-            LastName = "Frog",
-            PasswordHash = "worldworld"
-        }
+                    new Municipality("Copenhagen")
+                    {
+                       
+                    }
     };
 
-    public static async Task InitializeAsync(ApplicationDbContext dbContext, IPasswordHasher passwordHasher)
+    public static async Task InitializeAsync(ApplicationDbContext dbContext)
     {
-        if (await dbContext.Users.AnyAsync())
+        if (await dbContext.Municipalities.AnyAsync())
         {
             return; // DB has been seeded
         }
 
-        await PopulateTestDataAsync(dbContext, passwordHasher);
+        await PopulateTestDataAsync(dbContext);
     }
 
-    public static async Task PopulateTestDataAsync(ApplicationDbContext dbContext, IPasswordHasher passwordHasher)
+    public static async Task PopulateTestDataAsync(ApplicationDbContext dbContext)
     {
-        foreach (var user in Users)
+        foreach (var municipality in Municipalities)
         {
-            user.PasswordHash = passwordHasher.Hash(user.PasswordHash);
+            dbContext.Municipalities.Add(municipality);
         }
 
-        dbContext.Users.AddRange(Users);
         await dbContext.SaveChangesAsync();
     }
 }
