@@ -9,7 +9,8 @@ Mssing in this repo:
 - [ ] Needs more validation and sanitization
 - [ ] Need to add abstraction for EF.  Perhaps with a Repository.
 
-# Clean Architecture Template
+
+## Clean Architecture Template - by Milan Jovanovic
 
 What's included in the template?
 
