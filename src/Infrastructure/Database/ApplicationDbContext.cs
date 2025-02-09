@@ -1,8 +1,12 @@
 ﻿using Application.Abstractions.Data;
+
 using Domain.Todos;
 using Domain.Users;
+
 using MediatR;
+
 using Microsoft.EntityFrameworkCore;
+
 using SharedKernel;
 
 namespace Infrastructure.Database;

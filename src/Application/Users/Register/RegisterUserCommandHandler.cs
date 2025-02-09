@@ -1,8 +1,11 @@
 ﻿using Application.Abstractions.Authentication;
 using Application.Abstractions.Data;
 using Application.Abstractions.Messaging;
+
 using Domain.Users;
+
 using Microsoft.EntityFrameworkCore;
+
 using SharedKernel;
 
 namespace Application.Users.Register;

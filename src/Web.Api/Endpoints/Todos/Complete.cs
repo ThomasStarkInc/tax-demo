@@ -1,6 +1,9 @@
 ﻿using Application.Todos.Complete;
+
 using MediatR;
+
 using SharedKernel;
+
 using Web.Api.Extensions;
 using Web.Api.Infrastructure;
 
@@ -18,7 +21,6 @@ internal sealed class Complete : IEndpoint
 
             return result.Match(Results.NoContent, CustomResults.Problem);
         })
-        .WithTags(Tags.Todos)
-        .RequireAuthorization();
+        .WithTags(Tags.Todos);
     }
 }

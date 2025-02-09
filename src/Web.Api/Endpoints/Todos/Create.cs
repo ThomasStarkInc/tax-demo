@@ -1,7 +1,11 @@
 ﻿using Application.Todos.Create;
+
 using Domain.Todos;
+
 using MediatR;
+
 using SharedKernel;
+
 using Web.Api.Extensions;
 using Web.Api.Infrastructure;
 
@@ -35,7 +39,6 @@ internal sealed class Create : IEndpoint
 
             return result.Match(Results.Ok, CustomResults.Problem);
         })
-        .WithTags(Tags.Todos)
-        .RequireAuthorization();
+        .WithTags(Tags.Todos);
     }
 }

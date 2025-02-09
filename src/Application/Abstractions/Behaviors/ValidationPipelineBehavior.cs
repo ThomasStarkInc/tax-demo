@@ -1,7 +1,10 @@
 ﻿using System.Reflection;
+
 using FluentValidation;
 using FluentValidation.Results;
+
 using MediatR;
+
 using SharedKernel;
 
 namespace Application.Abstractions.Behaviors;

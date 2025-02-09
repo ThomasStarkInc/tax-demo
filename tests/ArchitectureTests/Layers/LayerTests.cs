@@ -1,4 +1,5 @@
 ﻿using NetArchTest.Rules;
+
 using Shouldly;
 
 namespace ArchitectureTests.Layers;
