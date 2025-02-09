@@ -12,6 +12,7 @@ using Serilog;
 
 using Web.Api;
 using Web.Api.Extensions;
+using Web.Api.Middleware;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -54,6 +55,8 @@ app.UseAuthorization();
 
 // REMARK: If you want to use Controllers, you'll need this.
 app.MapControllers();
+
+await app.UseAppMiddlewareAndSeedDatabase();
 
 await app.RunAsync();
 
