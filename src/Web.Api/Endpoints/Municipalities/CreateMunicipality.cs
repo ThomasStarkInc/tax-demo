@@ -20,6 +20,7 @@ internal sealed class CreateMunicipality : IEndpoint
     {
         app.MapPost("/api/municipalities/", async (Request request, ISender sender, CancellationToken cancellationToken) =>
         {
+            // TODO: Add validation, santization and error handling
             var command = new CreateMunicipalityCommand
             {
                 Name = request.Name,

@@ -15,6 +15,7 @@ internal sealed class GetById : IEndpoint
     {
         app.MapGet("/api/municipalities/{municipalityId:guid}", async (Guid municipalityId, ISender sender, CancellationToken cancellationToken) =>
         {
+            // TODO: Add validation, santization and error handling
             var query = new GetMunicipalityByIdQuery(municipalityId);
 
             Result<MunicipalityResponse> result = await sender.Send(query, cancellationToken);

@@ -27,6 +27,7 @@ internal sealed class Create : IEndpoint
     {
         app.MapPost("/api/taxschedules/", async (Request request, ISender sender, CancellationToken cancellationToken) =>
         {
+            // TODO: Add validation, santization and error handling
             var command = new CreateTaxScheduleForMunicipalityCommand
             {
                 MunicipalityId = request.MunicipalityId,

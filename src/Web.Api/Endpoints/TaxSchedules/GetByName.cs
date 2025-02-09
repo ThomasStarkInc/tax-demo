@@ -15,6 +15,7 @@ internal sealed class GetByNameAndDate : IEndpoint
     {
         app.MapGet("/api/taxschedules/{municipalityName}", async (string municipalityName, DateTime dateUtc, ISender sender, CancellationToken cancellationToken) =>
         {
+            // TODO: Add validation, santization and error handling
             var query = new GetTaxSchedulesByMunicipalityNameAndDateQuery(municipalityName, dateUtc);
 
             Result<TaxScheduleResponse> result = await sender.Send(query, cancellationToken);
