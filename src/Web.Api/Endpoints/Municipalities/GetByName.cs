@@ -1,4 +1,4 @@
-﻿using Application.Municipalities.GetById;
+﻿using Application.Municipalities.GetByName;
 
 using MediatR;
 
@@ -9,13 +9,13 @@ using Web.Api.Infrastructure;
 
 namespace Web.Api.Endpoints.Users;
 
-internal sealed class GetById : IEndpoint
+internal sealed class GetByName : IEndpoint
 {
     public void MapEndpoint(IEndpointRouteBuilder app)
     {
-        app.MapGet("/api/municipalities/{municipalityId:guid}", async (Guid municipalityId, ISender sender, CancellationToken cancellationToken) =>
+        app.MapGet("/api/municipalities/{municipalityName}", async (string municipalityName, ISender sender, CancellationToken cancellationToken) =>
         {
-            var query = new GetMunicipalityByIdQuery(municipalityId);
+            var query = new GetMunicipalityByNameQuery(municipalityName);
 
             Result<MunicipalityResponse> result = await sender.Send(query, cancellationToken);
 

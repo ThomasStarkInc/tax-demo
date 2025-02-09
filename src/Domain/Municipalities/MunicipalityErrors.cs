@@ -12,9 +12,9 @@ public static class MunicipalityErrors
         "Municipalities.Unauthorized",
         "You are not authorized to perform this action.");
 
-    public static readonly Error NotFoundByName = Error.NotFound(
-        "Municipalities.NotFoundByName",
-        "The municipality with the specified name was not found");
+    public static Error NotFoundByName(string municipalityName) => Error.NotFound(
+    "Municipalities.NotFound",
+    $"The municipality with the name = '{municipalityName}' was not found");
 
     public static readonly Error NameNotUnique = Error.Conflict(
         "Municipalities.NameNotUnique ",

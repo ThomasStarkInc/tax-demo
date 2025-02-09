@@ -26,7 +26,6 @@ public static class SeedData
 
     public static async Task PopulateTestDataAsync(ApplicationDbContext dbContext)
     {
-
         foreach (var municipality in CreateMunicipalities())
         {
             dbContext.Municipalities.Add(municipality);
